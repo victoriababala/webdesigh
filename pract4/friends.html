@@ -3,27 +3,34 @@
 <head>
     <title>Друзі Бабали Вікторії Василівни</title>
     <style>
-           h1 {
+        h1 {
             text-align: center;
-               font-size: 22px;
-          }
-          #f { 
-              background-color: green;
-              text-align: center;
-              color: rgb(223, 219, 219);
-              font-weight: bold;
+            font-size: 22px;
+        }
 
-          }
-          .number {
-              text-align: right;
-          }
-          h2 {
+        table tr th {
+            background-color: green;
             text-align: center;
-          }
-          #nnh {
-               font-style: italic;
-           }
-           table {
+            color: rgb(223, 219, 219);
+            font-weight: bold;
+
+        }
+
+        table tr td:last-child {
+            text-align: right;
+        }
+
+
+
+        h2 {
+            text-align: center;
+        }
+
+        #nnh {
+            font-style: italic;
+        }
+
+        table {
             width: 100%;
             border-collapse: collapse;
             border: 2px solid black;
@@ -36,11 +43,12 @@
             border: 2px solid black;
             padding: 1%;
         }
-          table tr:nth-child(even) td {
+
+        table tr:nth-child(even) td {
             background: gray;
         }
 
-table tr:nth-child(odd) td {
+        table tr:nth-child(odd) td {
             background: white;
         }
 
@@ -52,15 +60,17 @@ table tr:nth-child(odd) td {
 
 <body>
     <h1>Друзі Бабали Вікторії Василівни</h1>
-    <a href="index.html" id ="nnh"> Назад на головну</a>
-    <caption><h2>Мої друзі</h2> </caption> 
+    <a href="index.html" id="nnh"> Назад на головну</a>
+    <caption>
+        <h2>Мої друзі</h2>
+    </caption>
     <table>
         <tr>
-            <td id="f">Прізвище</td>
-            <td id="f">Ім'я</td>
-            <td id="f">Дата народження</td>
-            <td id="f">Адреса проживання</td>
-            <td id="f">Контактний телефон</td>
+            <th>Прізвище</th>
+            <th>Ім'я</th>
+            <th>Дата народження</th>
+            <th>Адреса проживання</th>
+            <th>Контактний телефон</th>
         </tr>
         <tr>
             <td>Трофименко</td>
