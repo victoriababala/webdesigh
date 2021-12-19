@@ -93,7 +93,7 @@
         echo "<p>Error: " . $sql . "<br></p>" . $conn->error;
     }
     echo ' <a href="/">На головну</a>  <br>';
-    echo ' <a href="output.php" id ="output1">Переглянути записи</a> ';
+    echo ' <a href="output1.php" id ="output1">Переглянути записи</a> ';
     $conn->close();
     ?>
 </body>
