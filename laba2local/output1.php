@@ -1,3 +1,10 @@
+<?php
+$offset = $_GET["offset"];
+
+if (!isset($offset))
+    $offset = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна 2 -> Виведення 1</title>
+    <title>Лабораторна 2 -> Виведення <?= $offset ?> </title>
     <style>
         body {
             background-color: cornflowerblue;
@@ -37,9 +44,18 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT id, firstname, family_name FROM Studentsdata LIMIT 4 OFFSET 0";
+    $sql = "SELECT id, firstname, family_name FROM Studentsdata LIMIT 4 OFFSET $offset";
+
+    /* select all data */
+    $sql2 = "SELECT id, firstname, family_name FROM Studentsdata";
+    $result2 = $conn->query($sql2);
+    $num_rows_all = $result2->num_rows; //count of all rows
+
     $result = $conn->query($sql);
-    echo " <p> Виведення 1 : </p>" . "<br>";
+    echo " <p> Виведення ";
+     $offset2 = $offset + 4;
+    echo  $offset+1 .' - '. $offset2;
+    echo " : </p>" . "<br>";
     if ($result->num_rows > 0) {
 
         while ($row = $result->fetch_assoc()) {
@@ -52,10 +68,13 @@
     }
     echo '<br><br>';
     echo ' <a href="/">На головну</a> <br><br> <br>';
-    echo ' <a href="output2.php?offset=' . 2 . '">' . 2  . '</a>';
-    echo ' <a href="output3.php?offset=' . 3 . '">' . 3  . '</a>';
-    echo ' <a href="output4.php?offset=' . 4 . '">' . 4  . '</a>';
-    echo ' <a href="output5.php?offset=' . 5 . '">' . 5 . '</a>';
+
+    $page_num = 0;
+
+    for ($i = 0; $i <= $num_rows_all; $i += 4) {
+        $page_num++;
+        echo ' <a href="output.php?offset=' . $i . '">' . $page_num  . '</a>';
+    }
 
     ?>
 </body>
